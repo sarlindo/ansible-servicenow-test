@@ -1,0 +1,24 @@
+---
+- name: servicenow-test
+  hosts: localhost
+  gather_facts: False
+
+  tasks:
+  # Using Scripted Rest API
+  - name: Create a CR
+    uri:
+      url: "{{ snowurl }}"
+      method: POST
+      user: "{{ snowuser }}"
+      password: "{{ snowpassword }}"
+      force_basic_auth: yes
+      status_code: 200
+      headers:
+        tableName: "change_request"
+        templateName: "Agile Non-Prod Application Deployment"
+      body: '{"description":"Environment: {{ env }} \n\nApp Name: {{ appname }} \nApp Version: {{ appversion }}"}'
+      body_format: json
+    register: new_cr
+
+  - name: debug
+    debug: var=new_cr

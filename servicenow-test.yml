@@ -1,0 +1,23 @@
+---
+- name: servicenow-test
+  hosts: localhost
+  gather_facts: False
+
+  tasks:
+  - name: Create CR
+    snow_record:
+      username: admin
+      password: Master123?
+      instance: dev58779
+      table: change_request
+      #lookup_field: u_standard_change
+      #number: bdc6b61bdb131300024085184b9619d4
+      state: present
+      data:
+        type: "standard"
+        std_change_producer_version: "bdc6b61bdb131300024085184b9619d4"
+        description: "This is a test CR opened by Ansible"
+    register: new_cr
+
+  - name: debug
+    debug: var=new_cr

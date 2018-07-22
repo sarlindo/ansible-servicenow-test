@@ -1,0 +1,7 @@
+---
+env: dev
+appname: galexy
+appversion: 1.0.0
+snowurl: https://dev58779.service-now.com/api/175918/record_from_template 
+snowuser: admin
+snowpassword: Master123?
