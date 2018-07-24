@@ -36,8 +36,8 @@
     record.setValue('state', -1); // Implement
     record.setValue('state', 0); // Review
     record.setValue('state', 3); // Closed
-    record.setValue('close_code', 'Successful'); 
-    record.setValue('close_notes', 'Successful'); 
+    record.setValue('close_code', requestData.close_code); 
+    record.setValue('close_notes', requestData.close_notes); 
         
     var id = record.insert();
     res['record_sys_id'] = id;

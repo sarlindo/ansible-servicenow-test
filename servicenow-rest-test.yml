@@ -16,7 +16,7 @@
       headers:
         tableName: "change_request"
         templateName: "Agile Non-Prod Application Deployment"
-      body: '{"description":"Environment: {{ env }} \n\nApp Name: {{ appname }} \nApp Version: {{ appversion }}"}'
+      body: '{"description":"Environment: {{ env }} \n\nApp Name: {{ appname }} \nApp Version: {{ appversion }}","close_code":"{{ snow_close_code }}","close_notes":"{{ snow_close_notes }}"}'
       body_format: json
     register: new_cr
 
